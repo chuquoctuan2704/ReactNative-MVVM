@@ -1,9 +1,10 @@
-/**
- * @format
- */
+import { AppRegistry } from 'react-native'
+import { App } from './App.tsx'
+import { name as appName } from './app.json'
+import debug from 'debug'
+// import { globalConfig } from './src/common/services/config-service'
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
-
-AppRegistry.registerComponent(appName, () => App);
+// if (globalConfig.env === 'dev') {
+debug.enable('*')
+// }
+AppRegistry.registerComponent(appName, () => App)

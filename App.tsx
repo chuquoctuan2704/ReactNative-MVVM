@@ -1,120 +1,49 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
+import React, { ReactElement } from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { RootSiblingParent } from 'react-native-root-siblings'
+import { I18nProvider } from './src/providers/i18n-provider'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { SystemToastProvider } from './src/providers/system-toast-provider'
+import { SystemActivityIndicatorProvider } from './src/providers/system-activity-indicator-provider'
+import { ExitModalProvider } from './src/providers/exit-modal-provider'
+import { Host } from 'react-native-portalize'
+import { SplashScreen } from './src/screen/splash-screen'
+import { setNavigatorReference } from './src/common/services/navigation-service'
+import { ScreenList } from './src/screen/screen-list'
 
-import React, {type PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+const queryClient = new QueryClient()
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section: React.FC<
-  PropsWithChildren<{
-    title: string;
-  }>
-> = ({children, title}) => {
-  const isDarkMode = useColorScheme() === 'dark';
+export function App(): ReactElement {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-
-const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+    <RootSiblingParent>
+      {/* ngon ngu */}
+      <I18nProvider>
+        {/* Quan ly va tim nap du lieu, lưu vào bộ nhớ đệm và cập nhật dữ liệu không đồng bộ trong React */}
+        <QueryClientProvider client={queryClient}>
+          {/* Hien thi Toast */}
+          <SystemToastProvider>
+            {/*  */}
+            <SystemActivityIndicatorProvider>
+              {/*  */}
+              <ExitModalProvider>
+                <SafeAreaProvider>
+                  {/* Hien thi component len tren tat ca <Portal> */}
+                  <Host>
+                    <SplashScreen>
+                      {/* <NavigationContainer ref={(reference) => setNavigatorReference(reference)}>
+                        <ScreenList />
+                      </NavigationContainer> */}
+                      <></>
+                      <></>
+                    </SplashScreen>
+                  </Host>
+                </SafeAreaProvider>
+              </ExitModalProvider>
+            </SystemActivityIndicatorProvider>
+          </SystemToastProvider>
+        </QueryClientProvider>
+      </I18nProvider>
+    </RootSiblingParent>
+  )
+}
