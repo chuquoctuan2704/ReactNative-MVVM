@@ -4,13 +4,23 @@ import { useTranslation } from 'react-i18next'
 
 const ViewContainer = styled.View`
   background-color: #0355fe;
-  width: 100%;
-  height: 100%;
+`
+const LogoContainer = styled.View`
   justify-content: center;
   align-items: center;
+  margin-bottom: 100px;
 `
-const LogoContainer = styled.Text`
-  color: black;
+const EmptyContainer = styled.View`
+  height: 52px;
+`
+const SymbolContainer = styled.View`
+  margin-top: 71px;
+`
+const TitleText = styled.Text`
+  margin-top: 23px;
+  color: #ffffff;
+  font-size: 19px;
+  letter-spacing: 3.2px;
 `
 
 export function SplashView(): ReactElement {
@@ -19,7 +29,11 @@ export function SplashView(): ReactElement {
 
   return (
     <ViewContainer>
-      <LogoContainer>{title}</LogoContainer>
+      <LogoContainer>
+        <SymbolContainer />
+        <TitleText>{title}</TitleText>
+        <EmptyContainer />
+      </LogoContainer>
     </ViewContainer>
   )
 }

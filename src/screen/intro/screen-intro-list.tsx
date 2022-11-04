@@ -2,14 +2,15 @@ import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/
 import Debug from 'debug'
 import React, { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
-import { RootStackParameterList } from '../common/navigation-parameters'
+import { RootStackParameterList } from '../../common/navigation-parameters'
 import { LoginScreen } from './login-screen'
+import { RegisterScreen } from './register-screen'
 
-const debug = Debug('luniverse:screen-list')
+const debug = Debug('screen-list')
 const Stack = createStackNavigator<RootStackParameterList>()
 const defaultScreenOption = {
   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-  title: '', // NOTE: 타이틀이 무조건 가운데 정렬되는 관계로 headerLeft 에서 타이틀까지 표시한다. 기본값 무시를 위해 강제로 빈 문자열로 설정한다.
+  title: '',
   headerStyle: {
     backgroundColor: '#ffffff',
     shadowOpacity: 0,
@@ -17,14 +18,14 @@ const defaultScreenOption = {
   },
 }
 
-export function ScreenList(): ReactElement {
+export function ScreenIntroList(): ReactElement {
   // const { t } = useTranslation()
   // const credentialDetailScreenTitle = useMemo(() => t('app.name'), [t])
-  debug('ScreenList')
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Main" component={LoginScreen} options={{ ...defaultScreenOption, headerShown: false }} />
+      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   )
 }

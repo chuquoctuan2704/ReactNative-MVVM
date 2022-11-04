@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { RootSiblingParent } from 'react-native-root-siblings'
 import { I18nProvider } from './src/providers/i18n-provider'
@@ -9,8 +8,7 @@ import { SystemActivityIndicatorProvider } from './src/providers/system-activity
 import { ExitModalProvider } from './src/providers/exit-modal-provider'
 import { Host } from 'react-native-portalize'
 import { SplashScreen } from './src/screen/splash-screen'
-import { setNavigatorReference } from './src/common/services/navigation-service'
-import { ScreenList } from './src/screen/screen-list'
+import { PreferencesProvider } from './src/providers/preferences-provider'
 
 const queryClient = new QueryClient()
 
@@ -29,15 +27,13 @@ export function App(): ReactElement {
               <ExitModalProvider>
                 <SafeAreaProvider>
                   {/* Hien thi component len tren tat ca <Portal> */}
-                  <Host>
-                    <SplashScreen>
-                      {/* <NavigationContainer ref={(reference) => setNavigatorReference(reference)}>
-                        <ScreenList />
-                      </NavigationContainer> */}
-                      <></>
-                      <></>
-                    </SplashScreen>
-                  </Host>
+                  <PreferencesProvider>
+                    <Host>
+                      <SplashScreen>
+                        <></>
+                      </SplashScreen>
+                    </Host>
+                  </PreferencesProvider>
                 </SafeAreaProvider>
               </ExitModalProvider>
             </SystemActivityIndicatorProvider>
