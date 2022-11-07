@@ -1,35 +1,26 @@
-import Debug from 'debug'
 import React, { ReactElement, useContext } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styled from 'styled-components/native'
-import { navigate } from '../../common/services/navigation-service'
-import { PreferencesContext } from '../../providers/preferences-provider'
-const debug = Debug('login')
+import { PreferencesContext } from '../../../providers/preferences-provider'
 
 const Container = styled(SafeAreaView)``
 const ViewContainer = styled.View`
   width: 70%;
-  height: 50%;
-  background-color: red;
+  height: 30%;
+  background-color: green;
 `
 const TextContainer = styled.Text``
 const ButtonChange = styled.TouchableOpacity``
-export function LoginScreen(): ReactElement {
+export function SettingScreen(): ReactElement {
   const { setPreferences } = useContext(PreferencesContext)
   return (
     <Container>
       <ViewContainer>
         <ButtonChange
           onPress={async () => {
-            await setPreferences({ selectedId: '1111' })
+            await setPreferences({ selectedId: '' })
           }}>
-          <TextContainer>Login1</TextContainer>
-        </ButtonChange>
-        <ButtonChange
-          onPress={async () => {
-            navigate('Register')
-          }}>
-          <TextContainer>     register</TextContainer>
+          <TextContainer>Setting</TextContainer>
         </ButtonChange>
       </ViewContainer>
     </Container>

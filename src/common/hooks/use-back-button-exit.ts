@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react'
 import { BackHandler } from 'react-native'
-import { ExitModalContext } from '~/providers/exit-modal-provider'
+import { ExitModalContext } from '../../providers/exit-modal-provider'
 
 export function useBackButtonExit(): void {
   const { showExitModal, setShowExitModal } = useContext(ExitModalContext)

@@ -4,7 +4,7 @@ import { globalConfig } from '../common/services/config-service'
 import { useAsyncError } from '../common/hooks/use-async-error'
 import { initI18n } from '../common/services/i18n-service'
 
-const debug = Debug('luniverse:i18n-provider')
+const debug = Debug('i18n-provider')
 
 export function I18nProvider({ children }: { children: ReactNode }): ReactElement {
   const [i18nInitialized, setI18nInitialized] = useState(false)

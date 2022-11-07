@@ -1,16 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Debug from 'debug'
 
-const debug = Debug('luniverse:preferences-service')
+const debug = Debug('preferences-service')
 
-const KEY = 'lunity-preferences-use-vault'
+const KEY = 'preference'
 
 export type Preferences = {
   selectedId: string
+  logged: boolean
 }
 
 export const defaultPreferences: Preferences = {
   selectedId: '',
+  logged: false,
 }
 
 function addAdditionalDefaultPreferences(preferences: Preferences): Preferences {

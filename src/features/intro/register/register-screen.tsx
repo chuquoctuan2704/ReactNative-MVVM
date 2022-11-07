@@ -2,7 +2,7 @@ import Debug from 'debug'
 import React, { ReactElement, useContext } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styled from 'styled-components/native'
-import { PreferencesContext } from '../../providers/preferences-provider'
+import { PreferencesContext } from '../../../providers/preferences-provider'
 const debug = Debug('login')
 
 const Container = styled(SafeAreaView)``

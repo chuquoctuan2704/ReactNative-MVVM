@@ -7,7 +7,7 @@ import { SystemToastProvider } from './src/providers/system-toast-provider'
 import { SystemActivityIndicatorProvider } from './src/providers/system-activity-indicator-provider'
 import { ExitModalProvider } from './src/providers/exit-modal-provider'
 import { Host } from 'react-native-portalize'
-import { SplashScreen } from './src/screen/splash-screen'
+import { ScreenControl } from './src/features/screen-control'
 import { PreferencesProvider } from './src/providers/preferences-provider'
 
 const queryClient = new QueryClient()
@@ -29,9 +29,7 @@ export function App(): ReactElement {
                   {/* Hien thi component len tren tat ca <Portal> */}
                   <PreferencesProvider>
                     <Host>
-                      <SplashScreen>
-                        <></>
-                      </SplashScreen>
+                      <ScreenControl />
                     </Host>
                   </PreferencesProvider>
                 </SafeAreaProvider>

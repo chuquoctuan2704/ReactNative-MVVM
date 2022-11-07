@@ -3,8 +3,8 @@ import Debug from 'debug'
 import React, { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 import { RootStackParameterList } from '../../common/navigation-parameters'
-import { LoginScreen } from './login-screen'
-import { RegisterScreen } from './register-screen'
+import { HomeScreen } from './home/home-screen'
+import { SettingScreen } from './setting/setting-screen'
 
 const debug = Debug('screen-list')
 const Stack = createStackNavigator<RootStackParameterList>()
@@ -18,14 +18,14 @@ const defaultScreenOption = {
   },
 }
 
-export function ScreenIntroList(): ReactElement {
+export function ScreenMainList(): ReactElement {
   // const { t } = useTranslation()
   // const credentialDetailScreenTitle = useMemo(() => t('app.name'), [t])
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Main" component={HomeScreen} options={{ ...defaultScreenOption, headerShown: true }} />
+      <Stack.Screen name="Setting" component={SettingScreen} options={{ ...defaultScreenOption, headerShown: true }} />
     </Stack.Navigator>
   )
 }
