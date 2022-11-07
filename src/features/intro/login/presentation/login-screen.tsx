@@ -1,8 +1,7 @@
 import Debug from 'debug'
-import React, { ReactElement, useContext } from 'react'
+import React, { ReactElement } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styled from 'styled-components/native'
-import { navigate } from '../../../../common/services/navigation-service'
 import LoginViewModel from './login-view-model'
 const debug = Debug('login')
 
@@ -79,7 +78,7 @@ const ButtonText = styled.Text`
   color: white;
 `
 export function LoginScreen(): ReactElement {
-  const { isShowPass, setIsShowPass, getLogin } = LoginViewModel()
+  const { isShowPass, setIsShowPass, getLogin, checkEmail, checkPassword } = LoginViewModel()
   return (
     <ScreenContainer>
       <LogoContainer>
@@ -90,13 +89,13 @@ export function LoginScreen(): ReactElement {
         <FormComponent>
           <TitleInput>Tài khoản</TitleInput>
           <InputContainer>
-            <InputComponent placeholder={'Nhap id hoac email'} />
+            <InputComponent placeholder={'Nhap id hoac email'} onChangeText={checkEmail} />
           </InputContainer>
         </FormComponent>
         <FormComponent>
           <TitleInput>Mật khẩu</TitleInput>
           <InputContainer>
-            <InputComponent secureTextEntry={isShowPass} placeholder={'Nhap mat khau'} />
+            <InputComponent secureTextEntry={isShowPass} placeholder={'Nhap mat khau'} onChangeText={checkPassword} />
             <IconPass isShowPass={isShowPass} onPress={() => setIsShowPass(!isShowPass)} />
           </InputContainer>
         </FormComponent>

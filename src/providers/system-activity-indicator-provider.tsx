@@ -17,7 +17,7 @@ export const SystemActivityIndicatorContext = createContext<SystemActivityIndica
 export function SystemActivityIndicatorProvider({ children }: { children: React.ReactNode }): ReactElement {
   const { t } = useTranslation()
   const [showSystemActivityIndicator, setShowSystemActivityIndicator] = useState<boolean>(false)
-  const [systemActivityMessage, setSystemActivityMessage] = useState<string>(t('app.name'),)
+  const [systemActivityMessage, setSystemActivityMessage] = useState<string>('Loading...')
 
   return (
     <SystemActivityIndicatorContext.Provider

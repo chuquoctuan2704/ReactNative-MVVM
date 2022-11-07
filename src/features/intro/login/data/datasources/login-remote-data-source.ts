@@ -6,7 +6,7 @@ import { Result } from '../../../../../common/network/result'
 
 export class LoginRemoteDatasource {
   login = async (user: LoginModel): Promise<Result<LoginResponse>> => {
-    const reponse: Response<Result<LoginResponse>> = await ApiService.login(user)
-    return reponse.data
+    const response: Response<Result<LoginResponse>> = await ApiService.login(user)
+    return response.data
   }
 }
