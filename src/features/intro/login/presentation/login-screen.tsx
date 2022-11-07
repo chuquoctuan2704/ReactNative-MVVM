@@ -29,7 +29,6 @@ const FormContainer = styled.View`
   align-items: center;
 `
 const FormComponent = styled.View`
-  height: 40px;
   width: 100%;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -40,6 +39,7 @@ const InputContainer = styled.View`
   padding-horizontal: 10px;
   flex-direction: row;
   align-items: center;
+  height: 40px;
 `
 const InputComponent = styled.TextInput`
   flex: 1;
