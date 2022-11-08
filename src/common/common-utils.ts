@@ -1,8 +1,11 @@
 import { Dimensions } from 'react-native'
 
 export function getErrorMessage(error: unknown): string {
-  if (error instanceof Error) return error.message
-  else return String(error)
+  if (error instanceof Error) {
+    return error.message
+  } else {
+    return String(error)
+  }
 }
 
 export function widthScreen(): number {

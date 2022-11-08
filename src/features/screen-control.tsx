@@ -11,9 +11,12 @@ const debug = Debug('splash')
 
 const MINIMUM_SPLASH_DURATION_MS = 1000
 
+export let token = ''
+
 export function ScreenControl(): ReactElement {
   const [showSplash, setShowSplash] = useState(true)
   const { preferences } = useContext(PreferencesContext)
+  token = preferences.selectedId
 
   // const { versionChecked, showUpdateDialog } = useVersionCheck()
 

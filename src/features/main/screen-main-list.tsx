@@ -18,14 +18,27 @@ const defaultScreenOption = {
   },
 }
 
+export enum ListScreenMain {
+  HOME = 'Home',
+  SETTING = 'Setting',
+}
+
 export function ScreenMainList(): ReactElement {
   // const { t } = useTranslation()
   // const credentialDetailScreenTitle = useMemo(() => t('app.name'), [t])
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Main" component={HomeScreen} options={{ ...defaultScreenOption, headerShown: true }} />
-      <Stack.Screen name="Setting" component={SettingScreen} options={{ ...defaultScreenOption, headerShown: true }} />
+      <Stack.Screen
+        name={ListScreenMain.HOME}
+        component={HomeScreen}
+        options={{ ...defaultScreenOption, headerShown: true }}
+      />
+      <Stack.Screen
+        name={ListScreenMain.SETTING}
+        component={SettingScreen}
+        options={{ ...defaultScreenOption, headerShown: true }}
+      />
     </Stack.Navigator>
   )
 }

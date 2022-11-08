@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styled from 'styled-components/native'
 import { navigate } from '../../../../common/services/navigation-service'
+import { ListScreenIntro } from '../../screen-intro-list'
 import LoginViewModel from './login-view-model'
 const debug = Debug('login')
 
@@ -23,7 +24,7 @@ const LogoIcon = styled.View`
   background-color: red;
 `
 const FormContainer = styled.View`
-  height: 40%;
+  height: 300px;
   margin-horizontal: 20px;
   justify-content: center;
   align-items: center;
@@ -79,7 +80,7 @@ const ButtonText = styled.Text`
   color: white;
 `
 export function LoginScreen(): ReactElement {
-  const { isShowPass, setIsShowPass, getLogin, checkEmail, checkPassword } = LoginViewModel()
+  const { email, password, isShowPass, setIsShowPass, loginAction, checkEmail, checkPassword } = LoginViewModel()
   return (
     <ScreenContainer>
       <LogoContainer>
@@ -90,13 +91,18 @@ export function LoginScreen(): ReactElement {
         <FormComponent>
           <TitleInput>Tài khoản</TitleInput>
           <InputContainer>
-            <InputComponent placeholder={'Nhap id hoac email'} onChangeText={checkEmail} />
+            <InputComponent placeholder={'Nhap id hoac email'} onChangeText={checkEmail} value={email} />
           </InputContainer>
         </FormComponent>
         <FormComponent>
           <TitleInput>Mật khẩu</TitleInput>
           <InputContainer>
-            <InputComponent secureTextEntry={isShowPass} placeholder={'Nhap mat khau'} onChangeText={checkPassword} />
+            <InputComponent
+              secureTextEntry={isShowPass}
+              placeholder={'Nhap mat khau'}
+              onChangeText={checkPassword}
+              value={password}
+            />
             <IconPass isShowPass={isShowPass} onPress={() => setIsShowPass(!isShowPass)} />
           </InputContainer>
         </FormComponent>
@@ -104,8 +110,7 @@ export function LoginScreen(): ReactElement {
         <ButtonContainer>
           <ButtonComponent
             onPress={() => {
-              debug('Login button pressed')
-              getLogin()
+              loginAction()
             }}>
             <ButtonTextContainer>
               <ButtonText>Login</ButtonText>
@@ -113,8 +118,7 @@ export function LoginScreen(): ReactElement {
           </ButtonComponent>
           <ButtonComponent
             onPress={async () => {
-              debug('Register button pressed')
-              navigate('Register')
+              navigate(ListScreenIntro.REGISTER)
             }}>
             <ButtonTextContainer>
               <ButtonText>Register</ButtonText>

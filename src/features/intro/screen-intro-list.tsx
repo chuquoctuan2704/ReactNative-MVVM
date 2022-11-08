@@ -7,6 +7,10 @@ import { RegisterScreen } from './register/presentation/register-screen'
 
 const debug = Debug('screen-list')
 const Stack = createStackNavigator<RootStackParameterList>()
+export enum ListScreenIntro {
+  LOGIN = 'Login',
+  REGISTER = 'Register',
+}
 
 export function ScreenIntroList(): ReactElement {
   // const { t } = useTranslation()
@@ -14,8 +18,8 @@ export function ScreenIntroList(): ReactElement {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
+      <Stack.Screen name={ListScreenIntro.LOGIN} component={LoginScreen} options={{ headerShown: false }} />
+      <Stack.Screen name={ListScreenIntro.REGISTER} component={RegisterScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   )
 }

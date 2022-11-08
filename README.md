@@ -3,7 +3,11 @@
 MVVM - Clean architecture
 
 nvm using 18.12.0
+
 Language: Typescript
+
 Hook
+
 styled-components/native
-network ts-retrofit
+
+ts-retrofit

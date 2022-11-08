@@ -3,8 +3,6 @@ import {
   BaseService,
   Body,
   FormUrlEncoded,
-  GET,
-  Path,
   POST,
   RequestInterceptorFunction,
   Response,
@@ -14,6 +12,7 @@ import {
 import { LoginResponse } from '../../features/intro/login/data/dto/login-response'
 import { LoginModel } from '../../features/intro/login/domain/entities/login-model'
 import { Result } from '../network/result'
+import { token } from '../../features/screen-control'
 const debug = Debug('API-service')
 
 class RetrofitService extends BaseService {
@@ -25,11 +24,13 @@ class RetrofitService extends BaseService {
 }
 
 const RequestInterceptor: RequestInterceptorFunction = (config) => {
+  config.headers = { ...config.headers, Authorization: token }
+  config.timeout = 30000
   debug('axios request succeeded')
   const { url, method } = config
   debug(`method: ${method || 'undefined'}, url: ${url || 'undefined'}`)
-  // debug(`headers: ${JSON.stringify(config.headers, null, 2)}`)
-  // debug(`params: ${JSON.stringify(config.params, null, 2)}`)
+  debug(`headers: ${JSON.stringify(config.headers, null, 2)}`)
+  debug(`params: ${JSON.stringify(config.params, null, 2)}`)
   debug(`data: ${JSON.stringify(config.data, null, 2)}`)
   return config
 }
@@ -41,8 +42,7 @@ const ResponseInterceptor: ResponseInterceptorFunction = (response) => {
   return response
 }
 export const ApiService = new ServiceBuilder()
-  .setTimeout(30000)
   .setEndpoint('http://ip.jsontest.com')
-  .setResponseInterceptors(ResponseInterceptor)
   .setRequestInterceptors(RequestInterceptor)
+  .setResponseInterceptors(ResponseInterceptor)
   .build(RetrofitService)
