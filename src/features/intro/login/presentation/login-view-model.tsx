@@ -5,34 +5,52 @@ import { LoginLocalDatasource } from '../data/datasources/login-local-data-sourc
 import { LoginRemoteDatasource } from '../data/datasources/login-remote-data-source'
 import { LoginRepositoryImpl } from '../data/repositories/login-repository'
 import { LoginUsecase } from '../domain/usecases/login-usecase'
+import { SystemToastContext } from '../../../../providers/system-toast-provider'
+import { PreferencesContext } from '../../../../providers/preferences-provider'
 
 const debug = Debug('login-View-model')
 
 export default function LoginViewModel() {
   const [isShowPass, setIsShowPass] = useState(true)
+  const [email, setEmail] = useState('')
+  const [emailMessage, setEmailMessage] = useState('')
+  const [emailValid, setEmailValid] = useState(false)
+  const [password, setPassword] = useState('')
+  const [passwordMessage, setPasswordMessage] = useState('')
+  const [passwordValid, setPasswordValid] = useState(false)
   const { setShowSystemActivityIndicator, setSystemActivityMessage } = useContext(SystemActivityIndicatorContext)
+  const { showSystemToast } = useContext(SystemToastContext)
+  const { setPreferences } = useContext(PreferencesContext)
   const loginUsecase = new LoginUsecase(
     new LoginRepositoryImpl(new LoginRemoteDatasource(), new LoginLocalDatasource()),
   )
 
   function getLogin() {
-    setShowSystemActivityIndicator(true)
-    loginUsecase.login({ email: 'tuancq@gail.com', password: '123123' }).then(
-      (result) => {
-        debug(result, '========')
-        setShowSystemActivityIndicator(false)
-      },
-      (reject) => debug(reject),
-    )
+    if (emailValid && passwordValid) {
+      setShowSystemActivityIndicator(true)
+      loginUsecase.login({ email: 'tuancq@gail.com', password: '123123' }).then(
+        (result) => {
+          debug(result, '========')
+          setShowSystemActivityIndicator(false)
+          setPreferences({ selectedId: result.data?.token ?? '123' })
+        },
+        (reject) => debug(reject),
+      )
+    } else {
+      showSystemToast('Login false')
+    }
   }
 
   function checkEmail(value: string) {
+    setEmail(value)
     loginUsecase.checkValidateEmail(value).then(
       (result) => {
         if (result.isValid) {
-          debug(result, 'email done')
+          setEmailMessage(result.message)
+          setEmailValid(result.isValid)
         } else {
-          debug(result, 'email false')
+          setEmailMessage(result.message)
+          setEmailValid(result.isValid)
         }
       },
       (reject) => debug(reject),
@@ -40,12 +58,15 @@ export default function LoginViewModel() {
   }
 
   function checkPassword(value: string) {
+    setPassword(value)
     loginUsecase.checkValidatePassword(value).then(
       (result) => {
         if (result.isValid) {
-          debug('pass done')
+          setPasswordMessage(result.message)
+          setPasswordValid(result.isValid)
         } else {
-          debug('pass false')
+          setPasswordMessage(result.message)
+          setPasswordValid(result.isValid)
         }
       },
       (reject) => debug(reject),
@@ -53,6 +74,12 @@ export default function LoginViewModel() {
   }
 
   return {
+    email,
+    emailMessage,
+    emailValid,
+    password,
+    passwordMessage,
+    passwordValid,
     isShowPass,
     setIsShowPass,
     getLogin,

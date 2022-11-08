@@ -2,6 +2,7 @@ import Debug from 'debug'
 import React, { ReactElement } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styled from 'styled-components/native'
+import { navigate } from '../../../../common/services/navigation-service'
 import LoginViewModel from './login-view-model'
 const debug = Debug('login')
 
@@ -113,7 +114,7 @@ export function LoginScreen(): ReactElement {
           <ButtonComponent
             onPress={async () => {
               debug('Register button pressed')
-              // navigate('Register')
+              navigate('Register')
             }}>
             <ButtonTextContainer>
               <ButtonText>Register</ButtonText>

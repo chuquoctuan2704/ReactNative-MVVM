@@ -26,15 +26,15 @@ export function ScreenControl(): ReactElement {
   // debug(`showUpdateDialog: ${String(showUpdateDialog)}`)
   debug('preferences: ', preferences)
   if (!showSplash) {
-    if (!preferences.logged) {
-      debug('preferences: ', preferences.logged)
+    if (preferences.selectedId === '') {
+      debug('preferences: ', preferences.selectedId)
       component = (
         <NavigationContainer ref={(reference) => setNavigatorReference(reference)}>
           <ScreenIntroList />
         </NavigationContainer>
       )
     } else {
-      debug('preferences: ', preferences.logged)
+      debug('preferences: ', preferences.selectedId)
       component = (
         <NavigationContainer ref={(reference) => setNavigatorReference(reference)}>
           <ScreenMainList />

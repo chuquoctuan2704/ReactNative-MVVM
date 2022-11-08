@@ -3,7 +3,7 @@ import Debug from 'debug'
 import React, { ReactElement } from 'react'
 import { RootStackParameterList } from '../../common/navigation-parameters'
 import { LoginScreen } from './login/presentation/login-screen'
-import { RegisterScreen } from './register/register-screen'
+import { RegisterScreen } from './register/presentation/register-screen'
 
 const debug = Debug('screen-list')
 const Stack = createStackNavigator<RootStackParameterList>()

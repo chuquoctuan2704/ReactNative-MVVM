@@ -6,7 +6,10 @@ export class LoginLocalDatasource {
   checkValidateEmail = (email: string): Promise<ValidateEmailResponse> => {
     let isValid = false
     let message = ''
-    if (validator.isEmail(email)) {
+    if (email.length === 0) {
+      isValid = false
+      message = ''
+    } else if (validator.isEmail(email)) {
       isValid = true
       message = ''
     } else {
@@ -22,7 +25,10 @@ export class LoginLocalDatasource {
   checkValidatePassword = (pass: string): Promise<ValidatePasswordResponse> => {
     let isValid = false
     let message = ''
-    if (pass.length < 8) {
+    if (pass.length === 0) {
+      isValid = false
+      message = ''
+    } else if (pass.length < 8) {
       isValid = false
       message = 'mat khau phai dai hon 8 ky tu'
     } else if (this.regexPass.test(pass)) {
