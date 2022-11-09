@@ -8,5 +8,17 @@ module.exports = {
       },
     ],
   ],
-  plugins: [['@babel/plugin-proposal-decorators', { legacy: true }], 'babel-plugin-parameter-decorator'],
+  plugins: [
+    [
+      'module-resolver',
+      {
+        root: ['.'],
+        alias: {
+          '~': './src',
+        },
+      },
+    ],
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    'babel-plugin-parameter-decorator',
+  ],
 }
