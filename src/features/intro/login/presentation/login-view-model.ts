@@ -1,14 +1,14 @@
 import Debug from 'debug'
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { SystemActivityIndicatorContext } from '../../../../providers/system-activity-indicator-provider'
-import { LoginLocalDatasource } from '../data/datasources/login-local-data-source'
 import { LoginRemoteDatasource } from '../data/datasources/login-remote-data-source'
 import { LoginRepositoryImpl } from '../data/repositories/login-repository'
 import { LoginUsecase } from '../domain/usecases/login-usecase'
 import { SystemToastContext } from '../../../../providers/system-toast-provider'
 import { PreferencesContext } from '../../../../providers/preferences-provider'
-import { getEmail, getPassword } from '../../../../common/services/async-storage-service'
 import { AppError } from '~/common/network/error'
+import { getEmail, getPassword } from '~/common/services/async-storage-service'
+import { LoginLocalDatasource } from '../data/datasources/login-local-data-source'
 
 const debug = Debug('login-View-model')
 
@@ -38,12 +38,11 @@ export default function LoginViewModel() {
           setPreferences({ selectedId: result.data?.token! })
         })
         .catch((error: AppError) => {
-          debug('------', error.message)
           setShowSystemActivityIndicator(false)
           showSystemToast(error.toString() ?? 'Error')
         })
     } else {
-      showSystemToast('Login false')
+      showSystemToast('Please enter email, password is valid')
     }
   }
 

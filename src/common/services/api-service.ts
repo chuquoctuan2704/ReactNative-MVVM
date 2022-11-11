@@ -13,6 +13,8 @@ import { LoginResponse } from '../../features/intro/login/data/dto/login-respons
 import { LoginModel } from '../../features/intro/login/domain/entities/login-model'
 import { Result } from '../network/result'
 import { token } from '../../features/screen-control'
+import { RegisterModel } from '~/features/intro/register/domain/entities/register-model'
+import { RegisterResponse } from '~/features/intro/register/data/dto/register-reponse'
 const debug = Debug('API-service')
 
 class RetrofitService extends BaseService {
@@ -20,6 +22,12 @@ class RetrofitService extends BaseService {
   @FormUrlEncoded
   async login(@Body _item: LoginModel): Promise<Response<Result<LoginResponse>>> {
     return <Response<Result<LoginResponse>>>{}
+  }
+
+  @POST('/')
+  @FormUrlEncoded
+  async register(@Body _item: RegisterModel): Promise<Response<Result<RegisterResponse>>> {
+    return <Response<Result<RegisterResponse>>>{}
   }
 }
 
