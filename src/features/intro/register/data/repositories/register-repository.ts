@@ -1,9 +1,9 @@
 import { Result } from '~/common/network/result'
-import { ValidateEmailResponse, ValidatePasswordResponse } from '~/features/intro/login/data/dto/login-response'
-import { RegisterModel } from '../../domain/entities/register-model'
+import { ValidateEmailResponse, ValidatePasswordResponse } from '~/features/intro/login/domain/entities/login-response'
+import { RegisterModel } from '../dto/register-model'
 import { RegisterLocalDatasource } from '../datasource/register-local-data-source'
 import { RegisterRemoteDataSource } from '../datasource/register-remote-data-source'
-import { RegisterResponse } from '../dto/register-reponse'
+import { RegisterResponse } from '../../domain/entities/register-reponse'
 
 export interface RegisterRepository {
   register(user: RegisterModel): Promise<Result<RegisterResponse> | null>

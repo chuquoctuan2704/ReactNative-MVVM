@@ -1,5 +1,5 @@
 import validator from 'validator'
-import { ValidateEmailResponse, ValidatePasswordResponse } from '~/features/intro/login/data/dto/login-response'
+import { ValidateEmailResponse, ValidatePasswordResponse } from '~/features/intro/login/domain/entities/login-response'
 
 export class RegisterLocalDatasource {
   regexPass: RegExp = RegExp('^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$')

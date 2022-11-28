@@ -1,7 +1,7 @@
 import { Result } from '../../../../../common/network/result'
-import { LoginModel } from '../../domain/entities/login-model'
+import { LoginModel } from '../dto/login-model'
 import { LoginRemoteDatasource } from '../datasources/login-remote-data-source'
-import { LoginResponse, ValidateEmailResponse, ValidatePasswordResponse } from '../dto/login-response'
+import { LoginResponse, ValidateEmailResponse, ValidatePasswordResponse } from '../../domain/entities/login-response'
 import { LoginLocalDatasource } from './../datasources/login-local-data-source'
 
 export interface LoginRepository {

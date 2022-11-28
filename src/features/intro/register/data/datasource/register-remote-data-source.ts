@@ -1,8 +1,8 @@
 import { Response } from 'ts-retrofit'
 import { Result } from '~/common/network/result'
 import { ApiService } from '~/common/services/api-service'
-import { RegisterModel } from '../../domain/entities/register-model'
-import { RegisterResponse } from '../dto/register-reponse'
+import { RegisterModel } from '../dto/register-model'
+import { RegisterResponse } from '../../domain/entities/register-reponse'
 
 export class RegisterRemoteDataSource {
   register = async (user: RegisterModel): Promise<Result<RegisterResponse>> => {

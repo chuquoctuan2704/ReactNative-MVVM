@@ -1,4 +1,4 @@
-import { ValidateEmailResponse, ValidatePasswordResponse } from '../dto/login-response'
+import { ValidateEmailResponse, ValidatePasswordResponse } from '../../domain/entities/login-response'
 import validator from 'validator'
 
 export class LoginLocalDatasource {

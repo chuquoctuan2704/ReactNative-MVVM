@@ -1,8 +1,8 @@
 import { Result } from '../../../../../common/network/result'
 import { AppError } from '../../../../../common/network/error'
-import { LoginResponse, ValidateEmailResponse, ValidatePasswordResponse } from '../../data/dto/login-response'
+import { LoginResponse, ValidateEmailResponse, ValidatePasswordResponse } from '../entities/login-response'
 import { LoginRepository } from '../../data/repositories/login-repository'
-import { LoginModel } from '../entities/login-model'
+import { LoginModel } from '../../data/dto/login-model'
 
 export class LoginUsecase {
   constructor(private loginRepository: LoginRepository) {}

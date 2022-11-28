@@ -9,12 +9,12 @@ import {
   ResponseInterceptorFunction,
   ServiceBuilder,
 } from 'ts-retrofit'
-import { LoginResponse } from '../../features/intro/login/data/dto/login-response'
-import { LoginModel } from '../../features/intro/login/domain/entities/login-model'
+import { LoginResponse } from '../../features/intro/login/domain/entities/login-response'
+import { LoginModel } from '../../features/intro/login/data/dto/login-model'
 import { Result } from '../network/result'
 import { token } from '../../features/screen-control'
-import { RegisterModel } from '~/features/intro/register/domain/entities/register-model'
-import { RegisterResponse } from '~/features/intro/register/data/dto/register-reponse'
+import { RegisterModel } from '~/features/intro/register/data/dto/register-model'
+import { RegisterResponse } from '~/features/intro/register/domain/entities/register-reponse'
 const debug = Debug('API-service')
 
 class RetrofitService extends BaseService {

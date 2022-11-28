@@ -1,9 +1,9 @@
 import { AppError } from '~/common/network/error'
 import { Result } from '~/common/network/result'
-import { ValidateEmailResponse, ValidatePasswordResponse } from '~/features/intro/login/data/dto/login-response'
-import { RegisterResponse } from '../../data/dto/register-reponse'
+import { ValidateEmailResponse, ValidatePasswordResponse } from '~/features/intro/login/domain/entities/login-response'
+import { RegisterResponse } from '../entities/register-reponse'
 import { RegisterRepository } from '../../data/repositories/register-repository'
-import { RegisterModel } from '../entities/register-model'
+import { RegisterModel } from '../../data/dto/register-model'
 
 export class RegisterUsecase {
   constructor(private registerRepository: RegisterRepository) {}
