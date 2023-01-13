@@ -30,14 +30,14 @@ export function RegisterViewModel() {
   const registerUsecase = useMemo(
     () =>
       new RegisterUsecase(new RegisterRepositoryImpl(new RegisterRemoteDataSource(), new RegisterLocalDatasource())),
-    [],
+    []
   )
 
   function registerAction() {
     if (emailValid && passwordValid) {
       setShowSystemActivityIndicator(true)
       registerUsecase
-        .register({ email: email, password: password, passwordCofirm: passwordConfirm })
+        .register({ email: email, password: password })
         .then((result) => {
           setShowSystemActivityIndicator(false)
           setPreferences({ selectedId: result.data?.token! })
@@ -59,7 +59,7 @@ export function RegisterViewModel() {
         setEmailMessage(result.message)
         setEmailValid(result.isValid)
       },
-      (reject) => debug(reject),
+      (reject) => debug(reject)
     )
   }
 
@@ -70,7 +70,7 @@ export function RegisterViewModel() {
         setPasswordMessage(result.message)
         setPasswordValid(result.isValid)
       },
-      (reject) => debug(reject),
+      (reject) => debug(reject)
     )
   }
 
@@ -102,6 +102,6 @@ export function RegisterViewModel() {
     registerAction,
     checkValidateEmail,
     checkValidatePassword,
-    checkValidatePasswordConfirm,
+    checkValidatePasswordConfirm
   }
 }

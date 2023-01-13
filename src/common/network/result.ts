@@ -11,3 +11,9 @@ export class Result<T> {
     this.message = message
   }
 }
+
+export type ResultError = {
+  data: unknown
+  code: number
+  msg: string
+}

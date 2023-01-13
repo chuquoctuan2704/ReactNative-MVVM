@@ -51,7 +51,7 @@ const IconPass = styled.TouchableOpacity`
 const TitleInput = styled.Text``
 const ButtonContainer = styled.View`
   background-color: white;
-  width: 100%
+  width: 100%;
   margin-top: 30px;
 `
 const ButtonComponent = styled.TouchableOpacity`

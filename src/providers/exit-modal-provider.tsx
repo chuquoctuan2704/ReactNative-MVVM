@@ -13,7 +13,7 @@ export const ExitModalContext = createContext<ExitModalState>({
   showExitModal: false,
   setShowExitModal: () => {},
   setExitModalMessage: () => {},
-  restoreDefaultMessage: () => {},
+  restoreDefaultMessage: () => {}
 })
 
 export function ExitModalProvider({ children }: { children: React.ReactNode }): ReactElement {

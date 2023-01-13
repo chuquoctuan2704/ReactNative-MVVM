@@ -1,9 +1,9 @@
-import Debug from 'debug'
+// import Debug from 'debug'
 import React, { ReactElement } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import styled from 'styled-components/native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { RegisterViewModel } from './register-view-model'
-const debug = Debug('login')
+// const debug = Debug('login')
 
 const ScreenContainer = styled(SafeAreaView)`
   background-color: white;
@@ -51,7 +51,7 @@ const IconPass = styled.TouchableOpacity`
 const TitleInput = styled.Text``
 const ButtonContainer = styled.View`
   background-color: white;
-  width: 100%
+  width: 100%;
   margin-top: 30px;
 `
 const ButtonComponent = styled.TouchableOpacity`
@@ -86,7 +86,7 @@ export function RegisterScreen(): ReactElement {
     registerAction,
     checkValidateEmail,
     checkValidatePassword,
-    checkValidatePasswordConfirm,
+    checkValidatePasswordConfirm
   } = RegisterViewModel()
   return (
     <ScreenContainer>

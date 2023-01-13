@@ -4,9 +4,9 @@ module.exports = {
     [
       '@babel/preset-typescript',
       {
-        onlyRemoveTypeImports: true,
-      },
-    ],
+        onlyRemoveTypeImports: true
+      }
+    ]
   ],
   plugins: [
     [
@@ -14,11 +14,11 @@ module.exports = {
       {
         root: ['.'],
         alias: {
-          '~': './src',
-        },
-      },
+          '~': './src'
+        }
+      }
     ],
     ['@babel/plugin-proposal-decorators', { legacy: true }],
-    'babel-plugin-parameter-decorator',
-  ],
+    'babel-plugin-parameter-decorator'
+  ]
 }

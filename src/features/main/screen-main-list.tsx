@@ -1,12 +1,11 @@
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack'
-import Debug from 'debug'
+// import Debug from 'debug'
 import React, { ReactElement } from 'react'
-import { useTranslation } from 'react-i18next'
 import { RootStackParameterList } from '../../common/navigation-parameters'
 import { HomeScreen } from './home/home-screen'
 import { SettingScreen } from './setting/setting-screen'
 
-const debug = Debug('screen-list')
+// const debug = Debug('screen-list')
 const Stack = createStackNavigator<RootStackParameterList>()
 const defaultScreenOption = {
   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
@@ -14,13 +13,13 @@ const defaultScreenOption = {
   headerStyle: {
     backgroundColor: '#ffffff',
     shadowOpacity: 0,
-    elevation: 0,
-  },
+    elevation: 0
+  }
 }
 
 export enum ListScreenMain {
   HOME = 'Home',
-  SETTING = 'Setting',
+  SETTING = 'Setting'
 }
 
 export function ScreenMainList(): ReactElement {

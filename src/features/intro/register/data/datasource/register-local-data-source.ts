@@ -18,7 +18,7 @@ export class RegisterLocalDatasource {
     }
     return Promise.resolve({
       isValid: isValid,
-      message: message,
+      message: message
     })
   }
 
@@ -40,7 +40,7 @@ export class RegisterLocalDatasource {
     }
     return Promise.resolve({
       isValid: isValid,
-      message: message,
+      message: message
     })
   }
 }

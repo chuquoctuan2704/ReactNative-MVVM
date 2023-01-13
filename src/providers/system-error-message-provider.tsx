@@ -8,18 +8,18 @@ export type SystemErrorMessageState = {
 
 export const SystemErrorMessageContext = createContext<SystemErrorMessageState>({
   systemErrorMessage: '',
-  setSystemErrorMessage: () => {},
+  setSystemErrorMessage: () => {}
 })
 
 export function SystemErrorMessageProvider({ children }: { children: React.ReactNode }): ReactElement {
   const { t } = useTranslation()
-  const [systemErrorMessage, setSystemErrorMessage] = useState<string>(t('app.name'))
+  const [systemErrorMessage, setSystemErrorMessage] = useState<string>(t('app.name') ?? '')
 
   return (
     <SystemErrorMessageContext.Provider
       value={{
         systemErrorMessage,
-        setSystemErrorMessage,
+        setSystemErrorMessage
       }}>
       {children}
     </SystemErrorMessageContext.Provider>

@@ -1,15 +1,15 @@
 import { createStackNavigator } from '@react-navigation/stack'
-import Debug from 'debug'
+// import Debug from 'debug'
 import React, { ReactElement } from 'react'
 import { RootStackParameterList } from '../../common/navigation-parameters'
 import { LoginScreen } from './login/presentation/login-screen'
 import { RegisterScreen } from './register/presentation/register-screen'
 
-const debug = Debug('screen-list')
+// const debug = Debug('screen-list')
 const Stack = createStackNavigator<RootStackParameterList>()
 export enum ListScreenIntro {
   LOGIN = 'Login',
-  REGISTER = 'Register',
+  REGISTER = 'Register'
 }
 
 export function ScreenIntroList(): ReactElement {

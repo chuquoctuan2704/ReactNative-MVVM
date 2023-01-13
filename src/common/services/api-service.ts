@@ -7,7 +7,7 @@ import {
   RequestInterceptorFunction,
   Response,
   ResponseInterceptorFunction,
-  ServiceBuilder,
+  ServiceBuilder
 } from 'ts-retrofit'
 import { LoginResponse } from '../../features/intro/login/domain/entities/login-response'
 import { LoginModel } from '../../features/intro/login/data/dto/login-model'

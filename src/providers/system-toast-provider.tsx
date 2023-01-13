@@ -20,16 +20,16 @@ const defaultContextValue = {
       containerStyle: {
         width: 270,
         borderRadius: 14,
-        padding: 30,
+        padding: 30
       },
       textStyle: {
-        fontSize: 14,
-      },
+        fontSize: 14
+      }
     })
   },
   hideSystemToast: (toast: Toast) => {
     Toast.hide(toast)
-  },
+  }
 }
 
 export const SystemToastContext = createContext<SystemToastState>(defaultContextValue)

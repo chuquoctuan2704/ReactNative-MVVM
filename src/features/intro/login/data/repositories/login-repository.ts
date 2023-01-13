@@ -13,7 +13,7 @@ export interface LoginRepository {
 export class LoginRepositoryImpl implements LoginRepository {
   constructor(
     private loginRemoteDatasource: LoginRemoteDatasource,
-    private loginLocalDatasource: LoginLocalDatasource,
+    private loginLocalDatasource: LoginLocalDatasource
   ) {}
 
   async login(user: LoginModel): Promise<Result<LoginResponse> | null> {

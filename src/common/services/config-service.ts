@@ -18,5 +18,5 @@ export const globalConfig: GlobalConfig = {
   authServiceUrl: env.authServiceUrl,
   visitorServiceUrl: env.visitorServiceUrl,
   applicationVersion: packageInfo.version,
-  walletServiceUrl: env.walletServiceUrl,
+  walletServiceUrl: env.walletServiceUrl
 }

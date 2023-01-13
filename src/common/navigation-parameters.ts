@@ -1,5 +1,6 @@
 export type RootStackParameterList = {
+  Login: Record<string, unknown>
+  Register: Record<string, unknown>
   Home: Record<string, undefined>
-  Login: Login
+  Setting: Record<string, unknown>
 }
-export type Login = Record<string, unknown>

@@ -77,7 +77,7 @@ export function Modal(props: ModalProperties): ReactElement {
     onCancel: onCancelProperty,
     onOk: onOkProperty,
     cancellable,
-    message,
+    message
   } = props
 
   if (!show) {
@@ -93,13 +93,13 @@ export function Modal(props: ModalProperties): ReactElement {
     buttons.push(
       <Button key="cancel" onPress={onCancel} submit={false} wide={false}>
         <ButtonText>{labelCancel}</ButtonText>
-      </Button>,
+      </Button>
     )
   }
   buttons.push(
     <Button key="ok" onPress={onOk} submit wide={!cancellable}>
       <ButtonText>{labelOk}</ButtonText>
-    </Button>,
+    </Button>
   )
 
   return (
@@ -119,5 +119,5 @@ Modal.defaultProps = {
   labelCancel: 'Cancel',
   onCancel: () => {},
   labelOk: 'Ok',
-  onOk: () => {},
+  onOk: () => {}
 }

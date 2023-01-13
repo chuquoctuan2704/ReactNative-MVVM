@@ -25,7 +25,7 @@ export default function LoginViewModel() {
   const { setPreferences } = useContext(PreferencesContext)
   const loginUsecase = useMemo(
     () => new LoginUsecase(new LoginRepositoryImpl(new LoginRemoteDatasource(), new LoginLocalDatasource())),
-    [],
+    []
   )
 
   function loginAction() {
@@ -59,10 +59,10 @@ export default function LoginViewModel() {
             setEmailValid(result.isValid)
           }
         },
-        (reject) => debug(reject),
+        (reject) => debug(reject)
       )
     },
-    [loginUsecase],
+    [loginUsecase]
   )
 
   const checkPassword = useCallback(
@@ -78,10 +78,10 @@ export default function LoginViewModel() {
             setPasswordValid(result.isValid)
           }
         },
-        (reject) => debug(reject),
+        (reject) => debug(reject)
       )
     },
-    [loginUsecase],
+    [loginUsecase]
   )
 
   useEffect(() => {
@@ -104,6 +104,6 @@ export default function LoginViewModel() {
     setIsShowPass,
     loginAction,
     checkEmail,
-    checkPassword,
+    checkPassword
   }
 }

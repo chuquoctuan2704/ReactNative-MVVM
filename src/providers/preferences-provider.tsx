@@ -5,7 +5,7 @@ import {
   defaultPreferences,
   getPreferences,
   Preferences,
-  setPreferences as setPreferencesService,
+  setPreferences as setPreferencesService
 } from '../common/services/preferences-service'
 
 const debug = Debug('preferences-provider')
@@ -50,7 +50,7 @@ export function PreferencesProvider({ children }: { children: React.ReactNode })
           throwError(new Error(`Failed to store preferences cause: ${error.stack || error.message}`))
         })
     },
-    [throwError],
+    [throwError]
   )
 
   return useMemo(() => {

@@ -14,7 +14,7 @@ export interface RegisterRepository {
 export class RegisterRepositoryImpl implements RegisterRepository {
   constructor(
     private registerRemoteDatasource: RegisterRemoteDataSource,
-    private registerLocalDatasource: RegisterLocalDatasource,
+    private registerLocalDatasource: RegisterLocalDatasource
   ) {}
 
   async register(user: RegisterModel): Promise<Result<RegisterResponse> | null> {

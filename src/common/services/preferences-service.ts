@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import Debug from 'debug'
+// import Debug from 'debug'
 
-const debug = Debug('preferences-service')
+// const debug = Debug('preferences-service')
 
 const KEY = 'preference'
 
@@ -10,7 +10,7 @@ export type Preferences = {
 }
 
 export const defaultPreferences: Preferences = {
-  selectedId: '',
+  selectedId: ''
 }
 
 function addAdditionalDefaultPreferences(preferences: Preferences): Preferences {

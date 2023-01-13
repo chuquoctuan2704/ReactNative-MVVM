@@ -21,7 +21,7 @@ export function getDeviceLanguage(): string {
 
 const resources = {
   ko: { translation: ko },
-  en: { translation: en },
+  en: { translation: en }
 }
 
 export function initI18n(debug: boolean): Promise<TFunction> {
@@ -30,6 +30,6 @@ export function initI18n(debug: boolean): Promise<TFunction> {
     lng: getDeviceLanguage(),
     resources,
     debug,
-    compatibilityJSON: 'v3',
+    compatibilityJSON: 'v3'
   })
 }
